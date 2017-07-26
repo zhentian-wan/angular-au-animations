@@ -16,7 +16,6 @@
 </header>
 
 
-
 <body>
 <div class="container">
   <h1>
@@ -93,6 +92,16 @@
 
   <button #paymentModal>Open Payment Modal</button>
 
+</div>
+
+<button (click)="toggleState()">Toggle</button>
+
+<div style="display: flex; align-items: center; align-content: space-between;">
+
+  <section [@heightZeroFull] *ngIf="state === 'active'" style="width: 200px; height: 200px; background: black;">
+  </section>
+
+  <section [@heightState]="state" style="width: 200px; height: 200px; background: blue;"></section>
 </div>
 
 </body>
