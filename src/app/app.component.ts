@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {fadeInOut, heightState, heightZeroFull} from './animations';
+import {Component, HostBinding} from '@angular/core';
+import {fadeInOut, heightState, heightZeroFull, jumpIntoPage} from './animations';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,7 @@ import {fadeInOut, heightState, heightZeroFull} from './animations';
   styleUrls: ['./app.component.css'],
   animations: [
     fadeInOut,
+    jumpIntoPage,
     heightZeroFull({duration: '500ms'}),
     heightState({height: '200px', duration: '500ms'})
   ]

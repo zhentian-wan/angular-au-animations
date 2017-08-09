@@ -1,4 +1,4 @@
-import {animation, style, animate, trigger, transition, useAnimation, state} from '@angular/animations';
+import {animation, style, animate, trigger, query, stagger, transition, useAnimation, state} from '@angular/animations';
 
 /*
 * DSL
@@ -51,6 +51,16 @@ const heightEnd = animation([
 /*
 * Transition
 * */
+
+export const jumpIntoPage = trigger('jumpIntoPage', [
+  transition(':enter', [
+    query('.form-input', style({transform: 'translateY(-50px)', opacity: 0})),
+    query('.form-input', [
+      stagger(180, [animate('300ms ease-in', style('*'))])
+    ])
+  ])
+]);
+
 export const fadeInOut = trigger('fadeInOut', [
   transition(':enter', useAnimation(fadeIn, {params: {duration: '800ms'}})),
   transition(':leave', useAnimation(fadeOut, {params: {duration: '200ms'}}))
